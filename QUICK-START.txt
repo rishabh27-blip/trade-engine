@@ -1,0 +1,131 @@
+╔════════════════════════════════════════════════════════════════╗
+║         📊 TRADE DECISION ENGINE - QUICK START GUIDE          ║
+╚════════════════════════════════════════════════════════════════╝
+
+🎯 WHAT IS THIS?
+A mobile-ready Progressive Web App that helps you make smarter 
+commodity trading decisions using risk analysis and machine learning.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📦 STEP 1: DEPLOY (Choose one)
+
+  Option A: NETLIFY (Easiest - 2 minutes)
+  ├─ Go to: https://app.netlify.com/drop
+  ├─ Drag the entire 'trade-engine-pwa' folder
+  └─ Get instant URL like: https://your-app.netlify.app
+
+  Option B: GITHUB PAGES (Recommended)
+  ├─ Create account at: https://github.com
+  ├─ Create new repository
+  ├─ Upload all files from 'trade-engine-pwa' folder
+  ├─ Settings → Pages → Deploy from main branch
+  └─ Your URL: https://username.github.io/repo-name
+
+  Option C: LOCAL TESTING
+  ├─ Open terminal in trade-engine-pwa folder
+  ├─ Run: ./start-server.sh
+  └─ Open: http://localhost:8000
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📱 STEP 2: INSTALL ON PHONE
+
+  🤖 ANDROID (Chrome/Edge)
+  ├─ Open your deployed URL in Chrome
+  ├─ Tap menu (⋮) → "Add to Home screen"
+  └─ Tap "Install"
+
+  🍎 iPHONE (Safari - must use Safari!)
+  ├─ Open URL in Safari browser
+  ├─ Tap Share button (⬆)
+  ├─ Scroll → "Add to Home Screen"
+  └─ Tap "Add"
+
+  ✅ Success = App icon on home screen!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎓 HOW TO USE
+
+  1️⃣  EVALUATE
+      └─ Enter 8 trade parameters → Get instant score + decision
+
+  2️⃣  SAVE
+      └─ Record trade with actual profit/loss outcome
+
+  3️⃣  HISTORY
+      └─ View all past trades + performance stats
+
+  4️⃣  ANALYTICS
+      └─ See which score ranges perform best (needs 5+ trades)
+
+  5️⃣  EXPORT
+      └─ Download CSV for Excel analysis
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 SCORING SYSTEM
+
+  70-100 points → ✅ TRADE (high confidence)
+  55-69 points  → ⚠️  CONSIDER (reduce position 50%)
+  0-54 points   → ❌ NO TRADE
+
+  Based on: Margin (30) + Risk (30) + Days (20) + Reliability (20)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✨ KEY FEATURES
+
+  ✓ Works offline (after first load)
+  ✓ All data stored locally (private)
+  ✓ No account/login required
+  ✓ Machine learning from your trades
+  ✓ Export data anytime
+  ✓ Fast & lightweight (50KB)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 PACKAGE CONTENTS
+
+  ├─ index.html              (Main app page)
+  ├─ app.js                  (All functionality)
+  ├─ styles.css              (Mobile-first design)
+  ├─ manifest.json           (PWA configuration)
+  ├─ service-worker.js       (Offline support)
+  ├─ icon-192.png            (App icon small)
+  ├─ icon-512.png            (App icon large)
+  ├─ README.md               (Full documentation)
+  ├─ INSTALLATION-GUIDE.html (Visual guide - open in browser)
+  ├─ start-server.sh         (Local test script)
+  └─ QUICK-START.txt         (This file)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔧 TROUBLESHOOTING
+
+  ❌ Can't install?
+     └─ Use HTTPS URL (not HTTP)
+     └─ iPhone: Must use Safari, not Chrome
+
+  ❌ Data lost?
+     └─ Use Export regularly for backup
+     └─ Don't clear browser data
+
+  ❌ Offline not working?
+     └─ First visit needs internet to cache files
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 MORE HELP
+
+  • Open INSTALLATION-GUIDE.html in browser for visual guide
+  • Read README.md for complete documentation
+  • All files work without internet after installation
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Version: 2.0 PWA | Made for Traders | Feb 2026
+
+🚀 Deploy it → 📱 Install it → 📊 Trade smarter!
+

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation Guide - Trade Decision Engine</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #0f172a;
+            text-align: center;
+        }
+        .step {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .step h2 {
+            color: #3b82f6;
+            margin-top: 0;
+        }
+        .platform {
+            background: #e0f2fe;
+            padding: 15px;
+            border-left: 4px solid #3b82f6;
+            margin: 15px 0;
+        }
+        .note {
+            background: #fef3c7;
+            padding: 15px;
+            border-left: 4px solid #f59e0b;
+            margin: 15px 0;
+        }
+        .success {
+            background: #dcfce7;
+            padding: 15px;
+            border-left: 4px solid #22c55e;
+            margin: 15px 0;
+        }
+        code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #3b82f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            margin: 10px 5px;
+        }
+        .button:hover {
+            background: #2563eb;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>📱 Trade Decision Engine PWA<br>Installation Guide</h1>
+
+    <div class="step">
+        <h2>🎯 What You'll Get</h2>
+        <ul>
+            <li>✅ Full mobile app experience</li>
+            <li>✅ Works offline (no internet needed after install)</li>
+            <li>✅ Home screen icon like native apps</li>
+            <li>✅ Fast loading and smooth performance</li>
+            <li>✅ All your data stored locally and privately</li>
+            <li>✅ No app store required!</li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <h2>📦 Step 1: Deploy Your App</h2>
+        <p>First, you need to host the app files online. Choose one of these FREE options:</p>
+        
+        <div class="platform">
+            <h3>Option A: GitHub Pages (Recommended)</h3>
+            <ol>
+                <li>Go to <a href="https://github.com" target="_blank">github.com</a> and create account</li>
+                <li>Click "New Repository"</li>
+                <li>Name it <code>trade-engine</code> (or any name)</li>
+                <li>Upload all files from the <code>trade-engine-pwa</code> folder</li>
+                <li>Go to Settings → Pages → Select "main branch"</li>
+                <li>Your app will be at: <code>https://yourusername.github.io/trade-engine</code></li>
+            </ol>
+        </div>
+
+        <div class="platform">
+            <h3>Option B: Netlify Drop (Easiest)</h3>
+            <ol>
+                <li>Go to <a href="https://app.netlify.com/drop" target="_blank">app.netlify.com/drop</a></li>
+                <li>Drag and drop the entire <code>trade-engine-pwa</code> folder</li>
+                <li>Wait 10 seconds - done!</li>
+                <li>You'll get a URL like: <code>https://random-name.netlify.app</code></li>
+            </ol>
+        </div>
+
+        <div class="platform">
+            <h3>Option C: Local Testing</h3>
+            <ol>
+                <li>Extract the ZIP file</li>
+                <li>Open terminal/command prompt in that folder</li>
+                <li>Run: <code>./start-server.sh</code> (Mac/Linux) or use Python command below</li>
+                <li>Windows: <code>python -m http.server 8000</code></li>
+                <li>Open <code>http://localhost:8000</code> in browser</li>
+            </ol>
+            <div class="note">
+                <strong>⚠️ Note:</strong> Local testing won't allow phone installation. Use GitHub or Netlify for that.
+            </div>
+        </div>
+    </div>
+
+    <div class="step">
+        <h2>📱 Step 2: Install on Your Phone</h2>
+        
+        <div class="platform">
+            <h3>🤖 Android (Chrome/Edge/Samsung Internet)</h3>
+            <ol>
+                <li>Open your deployed URL in Chrome browser</li>
+                <li>Look for the "Install" banner at the bottom, OR</li>
+                <li>Tap the menu button (⋮) in top-right</li>
+                <li>Select <strong>"Add to Home screen"</strong> or <strong>"Install app"</strong></li>
+                <li>Tap <strong>"Install"</strong> in the popup</li>
+                <li>The app icon appears on your home screen! 🎉</li>
+            </ol>
+        </div>
+
+        <div class="platform">
+            <h3>🍎 iPhone/iPad (Safari)</h3>
+            <ol>
+                <li>Open your deployed URL in <strong>Safari</strong> (must be Safari!)</li>
+                <li>Tap the <strong>Share</strong> button (square with arrow ⬆️)</li>
+                <li>Scroll down and tap <strong>"Add to Home Screen"</strong></li>
+                <li>Edit the name if you want, then tap <strong>"Add"</strong></li>
+                <li>The app icon appears on your home screen! 🎉</li>
+            </ol>
+            <div class="note">
+                <strong>📝 Important:</strong> iOS only supports PWA installation through Safari, not Chrome.
+            </div>
+        </div>
+    </div>
+
+    <div class="step">
+        <h2>💻 Step 3: Install on Desktop (Optional)</h2>
+        <ol>
+            <li>Open your deployed URL in Chrome, Edge, or Brave</li>
+            <li>Look for the install icon (⊕ or computer icon) in the address bar</li>
+            <li>Click it and select <strong>"Install"</strong></li>
+            <li>The app opens in its own window</li>
+            <li>Access it from your applications menu or desktop shortcut</li>
+        </ol>
+    </div>
+
+    <div class="step">
+        <h2>🎓 How to Use the App</h2>
+        <h3>Basic Workflow:</h3>
+        <ol>
+            <li><strong>Evaluate</strong> - Enter trade parameters and get instant risk analysis</li>
+            <li><strong>Save</strong> - Record the trade with actual profit/loss outcome</li>
+            <li><strong>History</strong> - Review all past trades and performance stats</li>
+            <li><strong>Analytics</strong> - See which score ranges produce best results</li>
+            <li><strong>Export</strong> - Download all data as CSV for spreadsheet analysis</li>
+        </ol>
+
+        <h3>Input Parameters:</h3>
+        <ul>
+            <li><strong>Buy Price</strong> - Purchase price per kg (₹/kg)</li>
+            <li><strong>Sell Price</strong> - Expected selling price per kg (₹/kg)</li>
+            <li><strong>Quantity</strong> - Amount in kilograms</li>
+            <li><strong>Transport Cost</strong> - Delivery cost per kg (₹/kg)</li>
+            <li><strong>Broker Cost</strong> - Commission per kg (₹/kg)</li>
+            <li><strong>Holding Days</strong> - Days until sale (1-30)</li>
+            <li><strong>Volatility</strong> - Price fluctuation per day (₹/kg/day)</li>
+            <li><strong>Reliability</strong> - Counterparty trust score (1-5 scale)</li>
+        </ul>
+    </div>
+
+    <div class="success">
+        <h2>✅ Success Checklist</h2>
+        <p>You've successfully installed if:</p>
+        <ul>
+            <li>✔️ App icon appears on your home screen</li>
+            <li>✔️ Opens in full-screen (no browser bar)</li>
+            <li>✔️ Works when you turn off WiFi/data (offline mode)</li>
+            <li>✔️ Data persists when you close and reopen</li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <h2>🔧 Troubleshooting</h2>
+        
+        <h3>❌ Can't install on iPhone?</h3>
+        <p>Make sure you're using <strong>Safari</strong> browser, not Chrome. iOS only supports PWA in Safari.</p>
+        
+        <h3>❌ Install button doesn't appear?</h3>
+        <p>Check that:</p>
+        <ul>
+            <li>You're accessing via <code>https://</code> (not <code>http://</code>)</li>
+            <li>You're using Chrome, Edge, or Safari (supported browsers)</li>
+            <li>Try refreshing the page</li>
+        </ul>
+        
+        <h3>❌ Data disappeared?</h3>
+        <p>Data is stored in browser storage. If you:</p>
+        <ul>
+            <li>Clear browser data → exports will be lost</li>
+            <li>Use private/incognito mode → data won't persist</li>
+            <li>Use different browser → won't see same data</li>
+        </ul>
+        <p><strong>Solution:</strong> Use the Export button regularly to backup your trade history!</p>
+        
+        <h3>❌ Offline mode not working?</h3>
+        <p>First visit requires internet to cache files. After that, it works completely offline.</p>
+    </div>
+
+    <div class="step">
+        <h2>📞 Need Help?</h2>
+        <p>Having issues? Here's what to check:</p>
+        <ul>
+            <li>Make sure app is hosted with HTTPS (required for PWA)</li>
+            <li>Try different browser (Chrome recommended)</li>
+            <li>Clear browser cache and try again</li>
+            <li>Check README.md file for detailed documentation</li>
+        </ul>
+    </div>
+
+    <div class="success">
+        <h2>🎉 You're All Set!</h2>
+        <p>Your Trade Decision Engine is now installed and ready to use. Start evaluating trades, saving results, and let the machine learning improve your decision-making over time!</p>
+        <p style="text-align: center; margin-top: 20px;">
+            <strong>Happy Trading! 📈</strong>
+        </p>
+    </div>
+
+</body>
+</html>
