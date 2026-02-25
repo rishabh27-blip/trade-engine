@@ -1,32 +1,20 @@
 {
   "name": "Trade Decision Engine",
   "short_name": "Trade Engine",
-  "description": "Professional commodity trading decision tool with risk analysis and learning capabilities",
-  "start_url": "/trade-engine/",
-"scope": "/trade-engine/"
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#0f172a",
   "theme_color": "#0f172a",
-  "orientation": "portrait",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "./icon-192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     },
     {
-      "src": "icon-512.png",
+      "src": "./icon-512.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
-  ],
-  "categories": ["finance", "business", "productivity"],
-  "screenshots": [
-    {
-      "src": "screenshot.png",
-      "sizes": "540x720",
       "type": "image/png"
     }
   ]
