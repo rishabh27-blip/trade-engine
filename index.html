@@ -2,114 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0f172a">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Trade Engine">
+
     <title>Trade Decision Engine</title>
-    <base href="/trade-engine/">
-    <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/png" href="icon-192.png">
-    <link rel="apple-touch-icon" href="icon-192.png">
+
+    <!-- ✅ IMPORTANT: NO BASE TAG -->
+
+    <link rel="manifest" href="./manifest.json">
+    <link rel="icon" href="./icon-192.png">
+    <link rel="apple-touch-icon" href="./icon-192.png">
+
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
 <div class="container">
-    <header>
-        <h1>📊 Trade Engine</h1>
-        <div class="install-prompt" id="installPrompt" style="display:none;">
-            <button id="installBtn" class="install-btn">📱 Install App</button>
-        </div>
-    </header>
+    <h1>📊 Trade Engine</h1>
+
+    <!-- INSTALL BUTTON -->
+    <div id="installPrompt" style="display:none;">
+        <button id="installBtn">📱 Install App</button>
+    </div>
 
     <div class="box">
-        <h2>Trade Evaluation</h2>
+        <input id="buy" placeholder="Buy Price">
+        <input id="sell" placeholder="Sell Price">
+        <input id="qty" placeholder="Qty">
+        <input id="transport" placeholder="Transport">
+        <input id="broker" placeholder="Broker">
+        <input id="days" placeholder="Holding Days">
+        <input id="vol" placeholder="Volatility">
+        <input id="rel" placeholder="Reliability">
 
-        <div class="input-group">
-            <label>Buy Price (₹/kg)</label>
-            <input type="number" id="buy" placeholder="0.00" step="0.01">
-        </div>
-
-        <div class="input-group">
-            <label>Sell Price (₹/kg)</label>
-            <input type="number" id="sell" placeholder="0.00" step="0.01">
-        </div>
-
-        <div class="input-group">
-            <label>Quantity (kg)</label>
-            <input type="number" id="qty" placeholder="0" step="1">
-        </div>
-
-        <div class="input-group">
-            <label>Transport Cost (₹/kg)</label>
-            <input type="number" id="transport" placeholder="0.00" step="0.01">
-        </div>
-
-        <div class="input-group">
-            <label>Broker Cost (₹/kg)</label>
-            <input type="number" id="broker" placeholder="0.00" step="0.01">
-        </div>
-
-        <div class="input-group">
-            <label>Holding Days</label>
-            <input type="number" id="days" placeholder="0" step="1" min="1">
-        </div>
-
-        <div class="input-group">
-            <label>Volatility (₹/kg/day)</label>
-            <input type="number" id="vol" placeholder="0.00" step="0.01">
-        </div>
-
-        <div class="input-group">
-            <label>Reliability (1-5)</label>
-            <input type="number" id="rel" placeholder="3" step="1" min="1" max="5">
-        </div>
-
-        <button class="btn eval" onclick="evaluateTrade()">
-            🎯 Evaluate Trade
-        </button>
-        
-        <button class="btn clear" onclick="clearForm()">
-            🔄 Clear Form
-        </button>
-
+        <button onclick="evaluateTrade()">Evaluate</button>
         <div id="output"></div>
     </div>
-   
-<div id="stats"></div>
-
-<div id="history"></div>
-
-    <div class="action-buttons">
-        <button class="btn save" onclick="saveTrade()">💾 Save Trade</button>
-        <button class="btn history" onclick="showTrades()">📜 History</button>
-        <button class="btn learn" onclick="analyzePerformance()">📈 Analytics</button>
-        <button class="btn export" onclick="exportData()">📤 Export</button>
-    </div>
-
-    <footer>
-        <p>Trade Decision Engine v2.0 PWA</p>
-        <p id="connectionStatus">🟢 Online</p>
-    </footer>
 </div>
 
 <script src="app.js"></script>
-<script>
-// Register Service Worker
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-       navigator.serviceWorker.register('./service-worker.js')
-            .then(reg => console.log('Service Worker registered'))
-            .catch(err => console.log('Service Worker registration failed'));
-    });
-}
 
-// Install prompt
+<script>
 let deferredPrompt;
 
+// ✅ Install trigger
 window.addEventListener('beforeinstallprompt', (e) => {
+    console.log("Install available");
     e.preventDefault();
     deferredPrompt = e;
     document.getElementById('installPrompt').style.display = 'block';
@@ -118,21 +57,17 @@ window.addEventListener('beforeinstallprompt', (e) => {
 document.getElementById('installBtn').addEventListener('click', async () => {
     if (deferredPrompt) {
         deferredPrompt.prompt();
-        const { outcome } = await deferredPrompt.userChoice;
-        console.log(`User response: ${outcome}`);
+        await deferredPrompt.userChoice;
         deferredPrompt = null;
-        document.getElementById('installPrompt').style.display = 'none';
     }
 });
 
-// Connection status
-window.addEventListener('online', () => {
-    document.getElementById('connectionStatus').innerHTML = '🟢 Online';
-});
-
-window.addEventListener('offline', () => {
-    document.getElementById('connectionStatus').innerHTML = '🔴 Offline';
-});
+// ✅ Service Worker
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./service-worker.js')
+        .then(() => console.log("SW registered"))
+        .catch(err => console.log(err));
+}
 </script>
 
 </body>
