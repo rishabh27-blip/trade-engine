@@ -1,33 +1,153 @@
+/* ===== GLOBAL ===== */
 body {
-    font-family: Arial;
-    background: #0f172a;
-    color: white;
+    font-family: "Inter", Arial, sans-serif;
+    background: #020617;
+    color: #e2e8f0;
     margin: 0;
 }
 
+/* ===== CONTAINER ===== */
 .container {
-    padding: 15px;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
 }
 
+/* ===== HEADINGS ===== */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #94a3b8;
+}
+
+/* ===== BOX ===== */
 .box {
-    background: #1e293b;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    background: #0f172a;
+    padding: 18px;
+    border-radius: 14px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
-input {
+/* ===== INPUT GRID ===== */
+.box input {
     width: 100%;
-    margin: 5px 0;
-    padding: 8px;
-}
-
-button {
-    margin: 5px;
     padding: 10px;
-    cursor: pointer;
+    margin: 6px 0;
+    border-radius: 8px;
+    border: 1px solid #1e293b;
+    background: #020617;
+    color: white;
+    font-size: 14px;
 }
 
-.green { background: #065f46; padding:10px; }
-.red { background: #7f1d1d; padding:10px; }
-.yellow { background: #78350f; padding:10px; }
+.box input:focus {
+    outline: none;
+    border: 1px solid #3b82f6;
+}
+
+/* ===== BUTTONS ===== */
+button {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 5px 5px 5px 0;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* Primary */
+button:hover {
+    transform: scale(1.03);
+}
+
+/* Evaluate */
+button:nth-child(1) {
+    background: #2563eb;
+    color: white;
+}
+
+/* Clear */
+button:nth-child(2) {
+    background: #334155;
+    color: white;
+}
+
+/* Save */
+.actions button:nth-child(1) {
+    background: #059669;
+    color: white;
+}
+
+/* Export */
+.actions button:nth-child(2) {
+    background: #7c3aed;
+    color: white;
+}
+
+/* Install */
+#installBtn {
+    background: #f59e0b;
+    color: black;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* ===== OUTPUT CARDS ===== */
+.green, .red, .yellow {
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* TRADE */
+.green {
+    background: linear-gradient(135deg, #065f46, #10b981);
+}
+
+/* NO TRADE */
+.red {
+    background: linear-gradient(135deg, #7f1d1d, #ef4444);
+}
+
+/* STATS */
+.yellow {
+    background: linear-gradient(135deg, #78350f, #f59e0b);
+}
+
+/* ===== METRICS STYLE ===== */
+p {
+    margin: 4px 0;
+}
+
+/* ===== HISTORY ===== */
+#history div {
+    margin-top: 8px;
+}
+
+/* ===== ACTIONS ===== */
+.actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    .actions {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+}
