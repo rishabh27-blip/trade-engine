@@ -1,43 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0f172a">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0f172a">
 
-    <title>Trade Decision Engine</title>
+<title>Trade Decision Engine</title>
 
-    <!-- ✅ IMPORTANT: NO BASE TAG -->
-
-    <link rel="manifest" href="./manifest.json">
-    <link rel="icon" href="./icon-192.png">
-    <link rel="apple-touch-icon" href="./icon-192.png">
-
-    <link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" href="./icon-192.png">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
 <div class="container">
-    <h1>📊 Trade Engine</h1>
+    <h1>📊 Trade Decision Engine</h1>
 
-    <!-- INSTALL BUTTON -->
+    <!-- INSTALL -->
     <div id="installPrompt" style="display:none;">
         <button id="installBtn">📱 Install App</button>
     </div>
 
+    <!-- INPUT -->
     <div class="box">
+        <h2>Trade Inputs</h2>
+
         <input id="buy" placeholder="Buy Price">
         <input id="sell" placeholder="Sell Price">
-        <input id="qty" placeholder="Qty">
-        <input id="transport" placeholder="Transport">
-        <input id="broker" placeholder="Broker">
+        <input id="qty" placeholder="Quantity">
+        <input id="transport" placeholder="Transport Cost">
+        <input id="broker" placeholder="Broker Cost">
         <input id="days" placeholder="Holding Days">
-        <input id="vol" placeholder="Volatility">
-        <input id="rel" placeholder="Reliability">
+        <input id="vol" placeholder="Volatility (₹/kg/day)">
+        <input id="rel" placeholder="Reliability (1-5)">
 
-        <button onclick="evaluateTrade()">Evaluate</button>
+        <button onclick="evaluateTrade()">🎯 Evaluate</button>
+        <button onclick="clearForm()">🔄 Clear</button>
+
         <div id="output"></div>
+    </div>
+
+    <!-- STATS -->
+    <div id="stats"></div>
+
+    <!-- HISTORY -->
+    <div id="history"></div>
+
+    <!-- ACTIONS -->
+    <div class="actions">
+        <button onclick="saveTrade()">💾 Save Trade</button>
+        <button onclick="exportData()">📤 Export</button>
     </div>
 </div>
 
@@ -46,27 +59,22 @@
 <script>
 let deferredPrompt;
 
-// ✅ Install trigger
 window.addEventListener('beforeinstallprompt', (e) => {
-    console.log("Install available");
     e.preventDefault();
     deferredPrompt = e;
     document.getElementById('installPrompt').style.display = 'block';
 });
 
-document.getElementById('installBtn').addEventListener('click', async () => {
+document.getElementById('installBtn').onclick = async () => {
     if (deferredPrompt) {
         deferredPrompt.prompt();
         await deferredPrompt.userChoice;
         deferredPrompt = null;
     }
-});
+};
 
-// ✅ Service Worker
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./service-worker.js')
-        .then(() => console.log("SW registered"))
-        .catch(err => console.log(err));
+    navigator.serviceWorker.register('./service-worker.js');
 }
 </script>
 
