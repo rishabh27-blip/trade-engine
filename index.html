@@ -7,6 +7,9 @@
 
 <title>Trade Decision Engine</title>
 
+<!-- IMPORTANT FOR GITHUB PAGES -->
+<base href="/trade-engine/">
+
 <link rel="manifest" href="./manifest.json">
 <link rel="icon" href="./icon-192.png">
 <link rel="stylesheet" href="styles.css">
@@ -17,20 +20,21 @@
 <div class="container">
     <h1>📊 Trade Decision Engine</h1>
 
-    <!-- INSTALL -->
-    <div id="installPrompt" style="display:none;">
-        <button id="installBtn">📱 Install App</button>
-    </div>
+    <!-- INSTALL (ALWAYS VISIBLE NOW) -->
+    <button id="installBtn">📱 Install App</button>
+    <p style="font-size:12px;color:#aaa;">
+        If install doesn't open → browser menu → Add to Home Screen
+    </p>
 
     <!-- INPUT -->
     <div class="box">
         <h2>Trade Inputs</h2>
 
-        <input id="buy" placeholder="Buy Price">
-        <input id="sell" placeholder="Sell Price">
-        <input id="qty" placeholder="Quantity">
-        <input id="transport" placeholder="Transport Cost">
-        <input id="broker" placeholder="Broker Cost">
+        <input id="buy" placeholder="Buy Price (₹/kg)">
+        <input id="sell" placeholder="Sell Price (₹/kg)">
+        <input id="qty" placeholder="Quantity (kg)">
+        <input id="transport" placeholder="Transport Cost (₹/kg)">
+        <input id="broker" placeholder="Broker Cost (₹/kg)">
         <input id="days" placeholder="Holding Days">
         <input id="vol" placeholder="Volatility (₹/kg/day)">
         <input id="rel" placeholder="Reliability (1-5)">
@@ -57,24 +61,29 @@
 <script src="app.js"></script>
 
 <script>
-let deferredPrompt;
+let deferredPrompt = null;
 
+// Capture install event
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
-    document.getElementById('installPrompt').style.display = 'block';
 });
 
+// Install button logic
 document.getElementById('installBtn').onclick = async () => {
+
     if (deferredPrompt) {
         deferredPrompt.prompt();
         await deferredPrompt.userChoice;
         deferredPrompt = null;
+    } else {
+        alert("Use browser menu → Add to Home Screen");
     }
 };
 
+// Register service worker (IMPORTANT PATH FIX)
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./service-worker.js');
+    navigator.serviceWorker.register('/trade-engine/service-worker.js');
 }
 </script>
 
