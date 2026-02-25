@@ -8,6 +8,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Trade Engine">
     <title>Trade Decision Engine</title>
+    <base href="/trade-engine/">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="icon-192.png">
     <link rel="apple-touch-icon" href="icon-192.png">
@@ -76,8 +77,7 @@
 
         <div id="output"></div>
     </div>
-    <button onclick="saveTrade()">Save Trade Result</button>
-
+   
 <div id="stats"></div>
 
 <div id="history"></div>
@@ -100,7 +100,7 @@
 // Register Service Worker
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js')
+        navigator.serviceWorker.register('/trade-engine/service-worker.js')
             .then(reg => console.log('Service Worker registered'))
             .catch(err => console.log('Service Worker registration failed'));
     });
